@@ -8,7 +8,7 @@ using System.Net.Http;
 using System.Web.Http;
 using webapi1;
 
-namespace webapi1.Controllers
+namespace WebApplication1.Controllers
 {
     public class productController : ApiController
     {

@@ -7,8 +7,9 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using System.Xml.Linq;
-using webapi1.Models;
-namespace webapi1.Controllers
+using WebApplication1.Models;
+
+namespace WebApplication1.Controllers
 {
  
     public class userController : ApiController

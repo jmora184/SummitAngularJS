@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace webapi1.Models
+namespace WebApplication1.Models
 {
     public class Class1
     {

@@ -9,9 +9,8 @@ using System.Web.Http.Description;
 using System.Data.Entity;
 using System.Web.Http.Cors;
 using webapi1;
-using AngularJS.webapi1;
 
-namespace AngularJS.webapi1.Controllers
+namespace WebApplication1.Controllers
 {
     [EnableCors(origins:"*", headers:"*", methods:"*")]
     public class VendorController : ApiController

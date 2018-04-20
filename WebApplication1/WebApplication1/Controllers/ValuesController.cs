@@ -4,9 +4,9 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using webapi1.Models;
+using WebApplication1.Models;
 
-namespace webapi1.Controllers
+namespace WebApplication1.Controllers
 {
     public class ValuesController : ApiController
     {

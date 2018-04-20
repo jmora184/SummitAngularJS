@@ -11,7 +11,7 @@ using System.Web.Http.Description;
 using System.Web.Http.Cors;
 using webapi1;
 
-namespace webapi1.Controllers
+namespace WebApplication1.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class InvoicesController : ApiController

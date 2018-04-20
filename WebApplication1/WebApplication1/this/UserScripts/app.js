@@ -42,14 +42,14 @@ app.config(function($routeProvider) {
 
 app.controller("customerControllers", customerControllers);
 function customerControllers($http, $scope) {
-    $http.get("http://localhost:53225/api/customers").then(function (data) {
+    $http.get("http://localhost:51767/api/customers").then(function (data) {
         $scope.customers = data.data;
     });
 }
 
 app.controller("yes", function ($scope, $http) {
     //Get All Vendors
-    $http.get('http://localhost:53225/api/Payments').then(function (response) {
+    $http.get('http://localhost:51767/api/Payments').then(function (response) {
         $scope.vendors = response.data;
 
     });
@@ -64,7 +64,7 @@ app.controller("customerController", ['$scope', '$http', '$location',
                     "CustAddress": $scope.item.CustAddress,
                     "CustPhone": $scope.item.CustPhone
                 }
-                $http.post("http://localhost:53225/api/customers",
+                $http.post("http://localhost:51767/api/customers",
                     item
                 ).then(function (result) {
                     location.reload(true);
@@ -75,7 +75,7 @@ app.controller("customerController", ['$scope', '$http', '$location',
 
 app.controller("productControllers", productControllers);
 function productControllers($http, $scope) {
-    $http.get("http://localhost:53225/api/product").then(function (data) {
+    $http.get("http://localhost:51767/api/product").then(function (data) {
         $scope.products = data.data;
     });
 }
@@ -89,7 +89,7 @@ app.controller("productController", ['$scope', '$http', '$location',
                     "Price": $scope.item.Price,
                     "Description": $scope.item.Description
                 }
-                $http.post("http://localhost:53225/api/product",
+                $http.post("http://localhost:51767/api/product",
                     item
                 ).then(function (result) {
                     location.reload(true);
@@ -105,7 +105,7 @@ app.controller("productController", ['$scope', '$http', '$location',
 
 app.controller("demoCntrl", demoCntrl);
     function demoCntrl($http,$scope){
-        $http.get("http://localhost:53225/api/user").then(function(data){
+        $http.get("http://localhost:51767/api/user").then(function(data){
             $scope.users=data.data;
        
         })
@@ -113,7 +113,7 @@ app.controller("demoCntrl", demoCntrl);
 
 app.controller("payroll", function ($scope, $http, $uibModal) {
     //Get All Vendors
-    $http.get('http://localhost:53225/api/user').then(function (response) {
+    $http.get('http://localhost:51767/api/user').then(function (response) {
         $scope.payroll = response.data;
 
     });
@@ -124,28 +124,28 @@ app.controller("payroll", function ($scope, $http, $uibModal) {
 
     //Insert a Vendor
     $scope.PostVendor = function (vendor) {
-        $http.post('http://localhost:53225/api/user', vendor);
+        $http.post('http://localhost:51767/api/user', vendor);
     }
 
     //Update a Vendor
     $scope.vendorDetails = { id: "", Name: "", Address: "" }
     $scope.GetVendorById = function (id) {
 
-        $http.get('http://localhost:53225/api/user' + id).then(function (response) {
+        $http.get('http://localhost:51767/api/user' + id).then(function (response) {
             $scope.vendorDetails = response.data;
         });
     }
 
     $scope.UpdateVendor = function (id, vendorDetails) {
         alert(id);
-        $http.put('http://localhost:53225/api/user' + id, vendorDetails);
+        $http.put('http://localhost:51767/api/user' + id, vendorDetails);
         console.log(vendorDetails.VendorName)
     }
 
     //Delete a Vendor
     $scope.Delete = function (id) {
         confirm("Do you want to delete the Vendor")
-        $http.delete('http://localhost:53225/api/user/' + id);
+        $http.delete('http://localhost:51767/api/user/' + id);
     }
 
     $scope.openModel = function (id) {
@@ -175,7 +175,7 @@ app.controller("payroll", function ($scope, $http, $uibModal) {
 
     app.controller("loginctrl",function($scope,$http,$location){
         var vm = this;
-        $http.get("http://localhost:53225/api/LogIn").then(function(response){
+        $http.get("http://localhost:51767/api/LogIn").then(function(response){
             $scope.agents = response.data;
         }
     );
@@ -214,7 +214,7 @@ app.controller("payroll", function ($scope, $http, $uibModal) {
                 }
         
               //This shows that my value is not null
-         $http.post("http://localhost:53225/api/user",       
+         $http.post("http://localhost:51767/api/user",       
          item
            ).then(function (result) {     //the parameter of API post   
                 $location.path('/Payroll');
@@ -256,7 +256,7 @@ app.controller("payroll", function ($scope, $http, $uibModal) {
             }]
         };
 
-            $http.get("http://localhost:53225/api/Values").then(function(data){
+            $http.get("http://localhost:51767/api/Values").then(function(data){
                 console.log(data);
                 $scope.myDataSource.data = data.data;
                 console.log($scope.myDataSource);

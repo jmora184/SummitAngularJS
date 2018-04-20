@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3fcf5c7472b440b28817f3697b450ee5" Name="Diagram1">
+        <EntityTypeShape EntityType="statinfi_summitModel.Employee" Width="1.5" PointX="6" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="statinfi_summitModel.Payroll" Width="1.5" PointX="8.25" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="statinfi_summitModel.UserRole" Width="1.5" PointX="3.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="statinfi_summitModel.Customer" Width="1.5" PointX="6" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="statinfi_summitModel.Inventory" Width="1.5" PointX="5.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="statinfi_summitModel.Invoice" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="statinfi_summitModel.Order_Sale" Width="1.5" PointX="8.25" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="statinfi_summitModel.Payment" Width="1.5" PointX="5.25" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="statinfi_summitModel.Product" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="statinfi_summitModel.Vendor" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <AssociationConnector Association="statinfi_summitModel.FK__Order_Sal__EmpID__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="statinfi_summitModel.FK_Employees_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="statinfi_summitModel.FK_Payroll_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="statinfi_summitModel.FK__Order_Sal__CustI__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="statinfi_summitModel.FK__Inventory__Produ__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="statinfi_summitModel.FK__Invoice__VendorI__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="statinfi_summitModel.FK__Payments__Invoic__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="statinfi_summitModel.FK__Order_Sal__Produ__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="statinfi_summitModel.FK__Payments__Vendor__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="statinfi_summitModel.FK__Product__VendorI__21B6055D" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
