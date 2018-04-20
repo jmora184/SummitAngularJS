@@ -18,7 +18,7 @@ app.config(function($routeProvider) {
         .when("/Invoice", {
 
             templateUrl: "Invoice.html"
-        })
+        }) 
         .when("/Payment", {
 
             controller: "yes",
