@@ -1,0 +1,79 @@
+.navbar {
+    overflow: hidden;
+    background-color: rgb(102, 102, 240);
+    position: fixed;
+    top: 0;
+    height: 22%;
+    width: 100%;
+    text-align:center;
+}
+.sbar {
+    overflow: hidden;
+    background-color: white;
+    position: fixed;
+    border-top-style: ridge;
+    border-top-color: lightblue;
+    border-bottom-color:lightblue;
+    border-bottom-style:ridge;
+    top: 13%;
+    height: 13px;
+    width: 100%;
+    margin-bottom:5%;
+}
+h3 {
+    
+    color:white;
+  
+}
+h4 { 
+    color: white;                     
+}
+.date {
+    position:absolute;
+   top:15px;
+   left:85%;
+   color:white;
+   font-size:large;
+
+}
+a.key {
+    background: url(~/Images/key.gif) no-repeat top left;
+    width: 20px;
+    float: left;
+    height: 20px;
+    text-indent: -9999px;
+}
+
+.container a {
+    display: inline-block;
+    vertical-align: top; /* Adjust if multi-line text */
+    margin: 10px;
+    padding: 5px;
+    width: 120px;
+    color: lightblue;
+    text-align: center;
+    text-decoration: none;
+}
+.container a img {
+    display: block;
+    margin: auto;
+    border: 0;
+}
+.container a span {
+    display: block;
+}
+
+.container1 {
+    width: 500px;
+    clear: both;
+  }
+  
+  .container1 input {
+    width: 100%;
+    clear: both;
+  }
+  
+
+.myTable { width:400px;background-color:#eee;border-collapse:collapse; margin-right:10%; }
+.myTable th { background-color:lightblue;color:white;width:50%; }
+.myTable td, .myTable th { padding:5px;border:1px solid lightblue; }

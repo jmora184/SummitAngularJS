@@ -1,0 +1,59 @@
+﻿<!--<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>AngularJS</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="nav.css">-->
+    <!--<script src="nav.js"></script>-->
+
+
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+            document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor = "white";
+        }
+    </script>
+
+
+
+
+ 
+    <div ng-controller="customerController" style="text-align:center">
+        <input type="text" ng-model="item.CustID" placeholder="Enter customer id" required />
+        <input type="text" ng-model="item.CustName" placeholder="Enter customer name" required />
+        <input type="text" ng-model="item.CustAddress" placeholder="Enter customer address" required />
+        <input type="text" ng-model="item.CustPhone" placeholder="Enter customer phone" required />
+        <input type="button" ng-click="submitForm(item)" value="Submit" required />
+        <!--<input type="button" ng-click="delete(item)" value="Delete" required />-->
+    </div>
+
+    <div ng-controller="customerControllers" style="margin-left:10%; margin-right:10%">
+        <h3>Customer Data</h3>
+        <table class="table table-striped">
+            <tr>
+                <th> id </th>
+                <th> name </th>
+                <th> address </th>
+                <th> phone </th>
+            </tr>
+            <tr ng-repeat="u in customers">
+                <td>{{u.CustID}}</td>
+                <td>{{u.CustName}}</td>
+                <td>{{u.CustAddress}}</td>
+                <td>{{u.CustPhone}}</td>
+            </tr>
+        </table>
+    </div>

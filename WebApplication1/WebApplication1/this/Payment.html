@@ -1,0 +1,86 @@
+﻿<!--<script src="../Scripts/bootstrap.js"></script>
+<script src="../Scripts/bootstrap.min.js"></script>-->
+<div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4" ng-controller="yes">
+                <table class="table table-bordered">
+                    <tr>
+                        <td colspan="6" align="center"> <h3>Payments </h3></td>
+                    </tr>
+                    <tr bgcolor="#5DADE2">
+                        <td align="center" style="width:20px; height:40px;">PayID</td>
+                        <td align="center" style="width:20px; height:40px;">InvoiceID</td>
+                        <td align="center" style="width:80px; height:40px;">VendorID</td>
+                        <td align="center" style="width:80px; height:40px;">PaymentDate</td>
+                        <td align="center" style="width:80px; height:40px;">PaymentType</td>
+                        <td align="center" style="width:80px; height:40px;">Amount</td>
+                    </tr>
+                    <tr ng-repeat="p in vendors">
+                        <td>{{p.PayID}}</td>
+                        <td>{{p.InvoiceID}}</td>
+                        <td>{{p.VendorID}}</td>
+                        <td>{{p.PaymentDate}}</td>
+                        <td>{{p.PaymentType}}</td>
+                        <td>{{p.Amount}}</td>
+                        <td align="center"> <input type="button" ng-click="GetPaymentById(p.PayID)" value="Pay" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="6">
+                            <table class="w3-striped">
+                                <tr>
+                                    <td>
+                                        <input type="text" ng-model="payment.PayID" placeholder="PayID" />
+                                    </td>
+                                    <td>
+                                        <input type="text" ng-model="payment.InvoiceID" placeholder="InvoiceID" />
+                                    </td>
+                                    <td>
+                                        <input type="text" ng-model="payment.VendorID" placeholder="VendorID" />
+                                    </td>
+                                    <td>
+                                        <input type="text" ng-model="payment.PaymentDate" placeholder="PaymentDate" />
+                                    </td>
+                                    <td>
+                                        <input type="text" ng-model="payment.PaymentType" placeholder="PaymentType" />
+                                    </td>
+                                    <td>
+                                        <input type="text" ng-model="payment.Amount" placeholder="Amount" />
+                                    </td>
+                                    <td>
+                                        <input type="button" ng-click="PostPayment(payment)" value="Add Payment" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <table class="w3-striped">
+                                <tr>
+                                    <td> <input type="text" ng-model="PaymentDetails.PayID" placeholder="PayID" /></td>
+                                    <td> <input type="text" ng-model="PaymentDetails.InvoiceID" placeholder="InvoiceID" /></td>
+                                    <td><input type="text" ng-model="PaymentDetails.VendorID" placeholder="VendorID" /></td>
+                                    <td><input type="text" ng-model="PaymentDetails.PaymentDate" placeholder="PaymentDate" /></td>
+                                    <td> <input type="text" ng-model="PaymentDetails.PaymentType" placeholder="PaymentType" /></td>
+                                    <td> <input type="text" ng-model="PaymentDetails.Amount" placeholder="Amount" /></td>
+                                    <td><input type="button" ng-click="Payment(PaymentDetails.PayID,PaymentDetails)" value="Pay" /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6">
+                            <table class="w3-striped">
+                                <tr>
+                                    <td colspan="3"><input type="text" ng-model="payment.PayID" placeholder="Enter PayID to Delete" /></td>
+                                    <td colspan="3"><input type="button" ng-click="DeletePayment(payment.PayID)" value="Delete payment" /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

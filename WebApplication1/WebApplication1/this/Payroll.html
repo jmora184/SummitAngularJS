@@ -1,0 +1,78 @@
+
+<link rel="stylesheet" href="UserScripts/style.css">
+<div class="container1">
+    <form name="basicItem" novalidate ng-controller="ItemCtrl" style="float: left; margin-right: 20%;">
+
+        <label id="titlelabel1" class="required">UserID</label>
+        <input ng-model="item.UserID" type="text" id="titlefield1" name="UserID" required>
+        <br>
+
+        <label id="titlelabel2" class="required">Password</label>
+        <input ng-model="item.Password" type="text" id="titlefield" name="Password" required>
+
+        <br>
+        <label id="titlelabel3" class="required">Email</label>
+        <input ng-model="item.Email" type="text" id="titlefield" name="Email" required>
+
+        <br>
+        <label id="titlelabel4" class="required">Payroll</label>
+        <input ng-model="item.PayrollID" type="text" id="titlefield" name="PayrollID" required>
+
+        <br>
+        <label id="titlelabel" class="required">Bank Name</label>
+        <input ng-model="item.BankName" type="text" id="titlefield" name="BankName" required>
+
+        <br>
+        <label id="titlelabel" class="required">Name</label>
+        <input ng-model="item.EmpName" type="text" id="titlefield" name="EmpName" required>
+
+        <br>
+        <label id="titlelabel" class="required">Address</label>
+        <input ng-model="item.EmpAddress" type="text" id="titlefield" name="EmpAddress" required>
+
+        <br>
+        <label id="titlelabel" class="required">Phone</label>
+        <input ng-model="item.EmpPhone" type="text" id="titlefield" name="EmpPhone" required>
+
+        <br>
+        <input type="button" value="Submit" ng-click=submitForm(item) required>
+    </form>
+</div>
+
+
+
+<div ng-controller="payroll">
+
+
+    <table class="myTable">
+        <tr>
+            <th>PayID</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Pay Start</th>
+            <th>Pay End</th>
+            <th>Bank</th>
+            <th>Account#</th>
+            <th>Net Pay</th>
+        </tr>
+        <tr ng-repeat="u in payroll">
+            <td>{{u.PayrollID}}</td>
+            <td>{{u.name}}</td>
+            <td>{{u.address}}</td>
+            <td>{{u.PayBegin}}</td>
+            <td>{{u.PayEnd}}</td>
+            <td>{{u.BankName}}</td>
+            <td>{{u.AcctNumber}}</td>
+            <td>{{u.NetPay}}</td>
+            <td> <button type="button" class="btn btn-info btn-lg" ng-click="openModel(u.PayrollID)">Open Modal</button></td>
+        </tr>
+    </table>
+
+
+    <!-- Trigger the modal with a button -->
+    
+
+</div>
+
+
+

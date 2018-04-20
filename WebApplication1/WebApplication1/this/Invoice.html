@@ -1,0 +1,89 @@
+﻿<script src="../Scripts/bootstrap.js"></script>
+<script src="../Scripts/bootstrap.min.js"></script>
+<br />
+<div class="container">
+    <div class="row"> 
+        <div class="col-sm-4" ng-controller="InvoiceController">
+            <table class="table table-bordered">
+                <tr>
+                    <td colspan="6" align="center"> <h3>Invoice Entry </h3></td>
+                </tr>
+                <tr bgcolor="#5DADE2">
+                    <td align="center" style="width:20px; height:40px;">InvoiceID</td>
+                    <td align="center" style="width:80px; height:40px;">Date</td>
+                    <td align="center" style="width:80px; height:40px;">Amount</td>
+                    <td align="center" style="width:80px; height:40px;">Description</td>
+                    <td align="center" style="width:80px; height:40px;">Status</td>
+                    <td align="center" style="width:80px; height:40px;">VendorID </td>
+                </tr>
+                <tr ng-repeat="i in invoices">
+
+                    <td>{{i.InvoiceID}}</td>
+                    <td>{{i.InvoiceDate}}</td>
+                    <td>{{i.InvoiceAmt}}</td>
+                    <td>{{i.InvoiceDescription}}</td>
+                    <td>{{i.InvoiceStatus}}</td>
+                    <td>{{i. VendorID}}</td>
+                    <td align="center"> <input type="button" ng-click="GetInvoiceById(i.InvoiceID)" value="Edit" /></td>
+                </tr>
+                <tr>
+                    <td colspan="6"> &nbsp;</td>
+                </tr>
+                <tr>
+                    <td colspan="6">
+                        <table class="w3-striped">
+                            <tr>
+                                <td>
+                                    <input type="text" ng-model="invoice.InvoiceID" placeholder="InvoiceID" />
+                                </td>
+                                <td>
+                                    <input type="text" ng-model="invoice.InvoiceDate" placeholder="InvoiceDate" />
+                                </td>
+                                <td>
+                                    <input type="text" ng-model="invoice.InvoiceAmt" placeholder="InvoiceAmt" />
+                                </td>
+                                <td>
+                                    <input type="text" ng-model="invoice.InvoiceDescription" placeholder="InvoiceDescription" />
+                                </td>
+                                <td>
+                                    <input type="text" ng-model="invoice.InvoiceStatus" placeholder="InvoiceStatus" />
+                                </td>
+                                <td>
+                                    <input type="text" ng-model="invoice.VendorID" placeholder="VendorID" />
+                                </td>
+                                <td>
+                                    <input type="button" ng-click="PostInvoice(invoice)" value="Add Invoice" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <table class="w3-striped">
+                            <tr>
+                                <td> <input type="text" ng-model="invoiceDetails.invoiceID" placeholder="InvoiceID" /></td>
+                                <td> <input type="text" ng-model="invoiceDetails.InvoiceDate" placeholder="InvoiceDate" /></td>
+                                <td><input type="text" ng-model="invoiceDetails.InvoiceAmt" placeholder="InvoiceAmt" /></td>
+                                <td><input type="text" ng-model="invoiceDetails.InvoiceDescription" placeholder="InvoiceDescription" /></td>
+                                <td> <input type="text" ng-model="invoiceDetails.InvoiceStatus" placeholder="InvoiceStatus" /></td>
+                                <td> <input type="text" ng-model="invoiceDetails.VendorID" placeholder="VendorID" /></td>
+                                <td><input type="button" ng-click="UpdateInvoice(invoiceDetails.invoiceID,invoiceDetails)" value="Update" /></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6">
+                        <table class="w3-striped">
+                            <tr>
+                                <td colspan="3"><input type="text" ng-model="invoice.InvoiceID" placeholder="Enter InvoiceID to Delete" /></td>
+                                <td colspan="3"><input type="button" ng-click="DeleteInvoice(invoice.InvoiceID)" value="Delete Invoice" /></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+ </div>
