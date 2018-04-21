@@ -112,6 +112,8 @@ app.controller("demoCntrl", demoCntrl);
 }
 
 app.controller("payroll", function ($scope, $http, $uibModal) {
+
+
     //Get All Vendors
     $http.get('http://localhost:51767/api/user').then(function (response) {
         $scope.payroll = response.data;
@@ -136,10 +138,16 @@ app.controller("payroll", function ($scope, $http, $uibModal) {
         });
     }
 
-    $scope.UpdateVendor = function (id, vendorDetails) {
-        alert(id);
-        $http.put('http://localhost:51767/api/user' + id, vendorDetails);
-        console.log(vendorDetails.VendorName)
+    $scope.UpdatePayroll = function (id, params) {
+
+        if ($scope.valu != null) {
+            params.BankName = $scope.valu;
+            alert("same");
+        }
+        console.log($scope.payroll.BankName);
+        console.log(id,params);
+        $http.put('http://localhost:51767/api/user/' + id, params);
+
     }
 
     //Delete a Vendor
@@ -148,7 +156,7 @@ app.controller("payroll", function ($scope, $http, $uibModal) {
         $http.delete('http://localhost:51767/api/user/' + id);
     }
 
-    $scope.openModel = function (id) {
+    $scope.openModel = function (id,BankName) {
         
         var modelInstance = $uibModal.open({
             templateUrl: 'openModal.html',
@@ -158,8 +166,8 @@ app.controller("payroll", function ($scope, $http, $uibModal) {
             resolve: {
                 params: function () {
                     return {
-                        name: id,
-                        city: 'city'
+                        PayrollID: id,
+                        BankName: BankName       
                     }
                 }
             }

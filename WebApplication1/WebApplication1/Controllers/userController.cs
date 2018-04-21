@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -79,6 +81,12 @@ namespace WebApplication1.Controllers
 
         }
 
+        [HttpPut] 
+        public void Put(int id,[FromBody]payroll payroll)
+        {
+
+
+        }
         [ResponseType(typeof(Payroll))]
         public IHttpActionResult Delete(int id)
         {
@@ -92,6 +100,11 @@ namespace WebApplication1.Controllers
             db.SaveChanges();
 
             return Ok(payroll);
+        }
+
+        private bool PayrollExists(int id)
+        {
+            return db.Payrolls.Count(e => e.PayrollID== id) > 0;
         }
 
     }

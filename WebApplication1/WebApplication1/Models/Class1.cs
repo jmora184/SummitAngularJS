@@ -74,4 +74,11 @@ namespace WebApplication1.Models
     {
         public List<UserRole> l { get; set; }
     }
+
+    public class payroll
+    {
+        public int PayrollID { get; set; }
+        public string BankName { get; set; }
+   
+    }
 }
