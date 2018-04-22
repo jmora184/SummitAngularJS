@@ -38,7 +38,7 @@ namespace WebApplication1.Controllers
                        lable = B.BankName,
                        value = B.BankName.Length,
                        name=c.EmpName,
-                       address=c.EmpAddress
+                       EmpAddress=c.EmpAddress
                        
 
                    }).ToList();
@@ -81,10 +81,48 @@ namespace WebApplication1.Controllers
 
         }
 
-        [HttpPut] 
-        public void Put(int id,[FromBody]payroll payroll)
+        [HttpPut]
+        [ResponseType(typeof(void))]
+        public IHttpActionResult Put(int id, [FromBody]payroll payroll)
         {
 
+
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                if (id != payroll.PayrollID)
+                {
+                    return BadRequest();
+                }
+
+                var ss = db.Payrolls.FirstOrDefault(p => p.PayrollID == id);
+                var sj = db.Employees.FirstOrDefault(p => p.EmpID== ss.EmpID);
+
+                ss.BankName = payroll.BankName;
+                ss.AcctNumber = payroll.AcctNumber;
+                sj.EmpAddress = payroll.EmpAddress;
+
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!PayrollExists(id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+
+                return StatusCode(HttpStatusCode.NoContent);
+            }
 
         }
         [ResponseType(typeof(Payroll))]

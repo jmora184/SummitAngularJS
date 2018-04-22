@@ -33,7 +33,7 @@ namespace WebApplication1.Models
         public string lable { get; set; }
         public int value { get; set; }
         public string name { get; set; }
-        public string address { get; set; }
+        public string EmpAddress { get; set; }
 
         public virtual Employee Employee { get; set; }
 
@@ -79,6 +79,9 @@ namespace WebApplication1.Models
     {
         public int PayrollID { get; set; }
         public string BankName { get; set; }
+        public int AcctNumber { get; set; }
+        public string EmpAddress { get; set; }
+        public string EmpID { get; set; }
    
     }
 }

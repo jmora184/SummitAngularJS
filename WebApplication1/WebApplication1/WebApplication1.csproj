@@ -2065,6 +2065,7 @@
     <Content Include="this\node_modules\angular-ui-bootstrap\template\typeahead\typeahead-popup.html" />
     <Content Include="this\node_modules\angular-ui-bootstrap\template\typeahead\typeahead-popup.html.js" />
     <Content Include="this\openModal.html" />
+    <Content Include="this\openVendor.html" />
     <Content Include="this\packages\Microsoft.Net.Compilers.2.1.0\tools\Microsoft.Build.Tasks.CodeAnalysis.dll" />
     <Content Include="this\Payment.html" />
     <Content Include="this\Payroll.html" />

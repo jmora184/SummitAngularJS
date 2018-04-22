@@ -18,16 +18,10 @@ namespace WebApplication1.Controllers
 
         public List<Product> Get()
         {
-            List<Product> product = null;
-            try
-            {
-                product = db.Products.ToList();
-            }
-            catch
-            {
-                product = null;
-            }
-            return product;
+
+            var s = db.Products.ToList();
+
+            return s;
         }
 
         public string Post([FromBody]Product product)

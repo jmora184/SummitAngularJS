@@ -111,7 +111,7 @@ app.controller("demoCntrl", demoCntrl);
         })
 }
 
-app.controller("payroll", function ($scope, $http, $uibModal) {
+app.controller("payroll", ['$scope', '$http','$uibModal', '$location', '$route', function ($scope, $http,$uibModal,  $location, $route) {
 
 
     //Get All Vendors
@@ -140,14 +140,30 @@ app.controller("payroll", function ($scope, $http, $uibModal) {
 
     $scope.UpdatePayroll = function (id, params) {
 
-        if ($scope.valu != null) {
-            params.BankName = $scope.valu;
-            alert("same");
+       
+        if ($scope.bank != null) {
+            params.BankName = $scope.bank;
         }
+
+
+        if ($scope.acct != null) {
+            params.AcctNumber = $scope.acct;
+        }
+
+
+        if ($scope.addr != null) {
+            params.EmpAddress = $scope.addr;
+        }
+
         console.log($scope.payroll.BankName);
         console.log(id,params);
         $http.put('http://localhost:51767/api/user/' + id, params);
 
+
+        $location.path('/Payroll');
+        $route.reload();
+
+        
     }
 
     //Delete a Vendor
@@ -156,10 +172,10 @@ app.controller("payroll", function ($scope, $http, $uibModal) {
         $http.delete('http://localhost:51767/api/user/' + id);
     }
 
-    $scope.openModel = function (id,BankName) {
+    $scope.openModel = function (id,BankName,AcctNumber,EmpAddress) {
         
         var modelInstance = $uibModal.open({
-            templateUrl: 'openModal.html',
+            templateUrl: 'openVendor.html',
             controller: 'modelCtrl',
  
             size: 'xs',
@@ -167,7 +183,9 @@ app.controller("payroll", function ($scope, $http, $uibModal) {
                 params: function () {
                     return {
                         PayrollID: id,
-                        BankName: BankName       
+                        BankName: BankName,
+                        AcctNumber: AcctNumber,
+                        EmpAddress: EmpAddress
                     }
                 }
             }
@@ -179,7 +197,7 @@ app.controller("payroll", function ($scope, $http, $uibModal) {
             
         });
     }
-});
+}]);
 
     app.controller("loginctrl",function($scope,$http,$location){
         var vm = this;

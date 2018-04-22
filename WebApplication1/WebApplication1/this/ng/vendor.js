@@ -1,7 +1,7 @@
 ﻿//Routing to different pages
 //var App = angular.module("MyAppModule", ['ngRoute']);
 
-app.controller("VendorController", function ($scope, $http) {
+app.controller("VendorController", ['$scope', '$http', '$uibModal', '$location', '$route', function ($scope, $http, $uibModal, $location, $route) {
         //Get All Vendors
         $http.get('http://localhost:51767/api/Vendors').then(function (response) {
             $scope.vendors = response.data;
@@ -22,18 +22,62 @@ app.controller("VendorController", function ($scope, $http) {
             });
         }
         
-        $scope.UpdateVendor = function (id,vendorDetails) {
-            alert(id);
-            $http.put('http://localhost:51767/api/Vendors' + id, vendorDetails);
-            console.log(vendorDetails.VendorName)
+    $scope.UpdateVendor = function (id, params) {
+
+
+        if ($scope.vName != null) {
+            params.VendorName = $scope.vName;
         }
+
+
+        if ($scope.vAddress != null) {
+            params.VendorAddress = $scope.vAddress;
+        }
+
+
+        console.log($scope.params.VendorID);
+        console.log(id, params);
+        $http.put('http://localhost:51767/api/Vendors/' + id, params);
+
+
+        $location.path('/Payroll');
+        $route.reload();
+
+
+    }
 
         //Delete a Vendor
         $scope.Delete = function (id) {
             confirm("Do you want to delete the Vendor")
             $http.delete('http://localhost:51767/api/Vendors/' + id);
-        }
-});
+    }
+
+    $scope.openModel = function (id, VendorName, VendorAddress) {
+
+        var modelInstance = $uibModal.open({
+            templateUrl: 'openModal.html',
+            controller: 'modelCtrl2',
+
+            size: 'xs',
+            resolve: {
+                params: function () {
+                    return {
+                        VendorID: id,
+                        VendorName: VendorName,
+                        VendorAddress: VendorAddress
+
+                    }
+                }
+            }
+        });
+
+        modelInstance.result.then(function (selectedItem) {
+
+        }, function () {
+
+        });
+    }
+}]);
 
 app.controller("InvoiceController", function ($scope, $http) {
         //Get All Invoice
@@ -98,5 +142,14 @@ app.controller("InvoiceController", function ($scope, $http) {
     //Delete an Payment
     $scope.DeletePayment = function (id) {
         $http.delete('http://localhost:51767/api/Payments/' + id);
+    }
+});
+
+app.controller('modelCtrl2', function ($scope, $uibModalInstance, params) {
+    console.log(params);
+    $scope.params = params;
+
+    $scope.close = function () {
+        $uibModalInstance.close("Done");
     }
 });

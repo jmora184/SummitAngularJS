@@ -41,7 +41,7 @@ namespace WebApplication1.Controllers
 
         // PUT: api/Vendors/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult Put(int id, Vendor vendor)
+        public IHttpActionResult Put(int id,[FromBody]Vendor vendor)
         {
             if (!ModelState.IsValid)
             {

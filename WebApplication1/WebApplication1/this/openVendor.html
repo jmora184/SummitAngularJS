@@ -1,0 +1,19 @@
+﻿<div uib-modal-window="modal-window" window-class="modal" size="xs" index="10" animate="animate" modal-animation="true">
+    <!-- modal template here -->
+
+
+    <form ng-controller="VendorController">
+        <input type="text" value="{{params.VendorName}}" placeholder="{{params.VendorName}}" ng-model="vName" />
+        <input type="text" value="{{params.VendorAddress}}" placeholder="{{params.VendorAddress}}" ng-model="vAddress" />
+
+
+        <input type="button" ng-click="UpdateVendor(params.VendorID,params);close()" value="Update" />
+    </form>
+
+    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="close()">Cancel</button>
+    <!--<input type="text" placeholder="{{params.name}}" />
+    <input type="button" ng-click="Delete(params.name)" value="Delete Vendor" />-->
+</div>
+
+
+
