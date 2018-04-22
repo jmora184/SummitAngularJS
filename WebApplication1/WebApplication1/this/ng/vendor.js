@@ -1,7 +1,7 @@
 ﻿//Routing to different pages
 //var App = angular.module("MyAppModule", ['ngRoute']);
 
-app.controller("VendorController", ['$scope', '$http', '$uibModal', '$location', '$route', function ($scope, $http, $uibModal, $location, $route) {
+app.controller("VendorController", ['$scope', '$http', '$uibModal', '$location', '$route','$window', function ($scope, $http, $uibModal, $location, $route,$window) {
         //Get All Vendors
         $http.get('http://localhost:51767/api/Vendors').then(function (response) {
             $scope.vendors = response.data;
@@ -13,14 +13,7 @@ app.controller("VendorController", ['$scope', '$http', '$uibModal', '$location',
             $http.post('http://localhost:51767/api/Vendors', vendor);
         }
 
-        //Update a Vendor
-        $scope.vendorDetails = { id: "", Name: "", Address: "" }
-        $scope.GetVendorById = function (id) {
 
-            $http.get('http://localhost:51767/api/Vendors' + id).then(function (response) {
-                $scope.vendorDetails = response.data;
-            });
-        }
         
     $scope.UpdateVendor = function (id, params) {
 
@@ -40,8 +33,9 @@ app.controller("VendorController", ['$scope', '$http', '$uibModal', '$location',
         $http.put('http://localhost:51767/api/Vendors/' + id, params);
 
 
-        $location.path('/Payroll');
-        $route.reload();
+        $location.path('/Vendor');
+        $window.location.reload();
+
 
 
     }
@@ -55,7 +49,7 @@ app.controller("VendorController", ['$scope', '$http', '$uibModal', '$location',
     $scope.openModel = function (id, VendorName, VendorAddress) {
 
         var modelInstance = $uibModal.open({
-            templateUrl: 'openModal.html',
+            templateUrl: 'openVendor.html',
             controller: 'modelCtrl2',
 
             size: 'xs',
@@ -145,11 +139,14 @@ app.controller("InvoiceController", function ($scope, $http) {
     }
 });
 
-app.controller('modelCtrl2', function ($scope, $uibModalInstance, params) {
+app.controller('modelCtrl2', function ($scope, $uibModalInstance, $route,$location,params) {
     console.log(params);
     $scope.params = params;
 
     $scope.close = function () {
+
         $uibModalInstance.close("Done");
+
+        
     }
 });

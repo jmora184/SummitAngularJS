@@ -40,12 +40,70 @@ app.config(function($routeProvider) {
 
 //
 
-app.controller("customerControllers", customerControllers);
-function customerControllers($http, $scope) {
-    $http.get("http://localhost:51767/api/customers").then(function (data) {
-        $scope.customers = data.data;
+app.controller("CustomerController", ['$scope', '$http', '$uibModal', '$location', '$route', '$window', function ($scope, $http, $uibModal, $location, $route, $window) {
+    $http.get('http://localhost:51767/api/customers').then(function (response) {
+        $scope.customers = response.data;
+
     });
-}
+
+    $scope.PostCustomer = function (customer) {
+        $http.post('http://localhost:51767/api/customers', customer);
+    }
+
+    $scope.UpdateCustomer = function (id, params) {
+
+
+        if ($scope.name != null) {
+            params.CustName = $scope.name;
+        }
+
+
+        if ($scope.add != null) {
+            params.CustAddress = $scope.add;
+        }
+
+        if ($scope.phone != null) {
+            params.CustPhone = $scope.phone;
+        }
+
+
+        console.log($scope.params.CustID);
+        console.log(id, params);
+        $http.put('http://localhost:51767/api/customers/' + id, params);
+
+
+        //$location.path('/customers');
+        //$window.location.reload();
+    }
+    $scope.openModel = function (id, CustName,CustAddress,CustPhone) {
+
+        var modelInstance = $uibModal.open({
+            templateUrl: 'openCustomers.html',
+            controller: 'modelCtr3',
+
+            size: 'xs',
+            resolve: {
+                params: function () {
+                    return {
+                        CustID:id,
+                        CustName: CustName,
+                        CustAddress: CustAddress,
+                        CustPhone: CustPhone
+
+                    }
+                }
+            }
+        });
+
+        modelInstance.result.then(function (selectedItem) {
+
+        }, function () {
+
+        });
+    }
+}]);
+
+
 
 app.controller("yes", function ($scope, $http) {
     //Get All Vendors
@@ -111,7 +169,7 @@ app.controller("demoCntrl", demoCntrl);
         })
 }
 
-app.controller("payroll", ['$scope', '$http','$uibModal', '$location', '$route', function ($scope, $http,$uibModal,  $location, $route) {
+app.controller("payroll", ['$scope', '$http','$uibModal', '$location', '$route','$window', function ($scope, $http,$uibModal,  $location, $route,$window) {
 
 
     //Get All Vendors
@@ -161,7 +219,7 @@ app.controller("payroll", ['$scope', '$http','$uibModal', '$location', '$route',
 
 
         $location.path('/Payroll');
-        $route.reload();
+        $window.location.reload();
 
         
     }
@@ -175,7 +233,7 @@ app.controller("payroll", ['$scope', '$http','$uibModal', '$location', '$route',
     $scope.openModel = function (id,BankName,AcctNumber,EmpAddress) {
         
         var modelInstance = $uibModal.open({
-            templateUrl: 'openVendor.html',
+            templateUrl: 'openModal.html',
             controller: 'modelCtrl',
  
             size: 'xs',
@@ -336,7 +394,7 @@ app.controller("payroll", ['$scope', '$http','$uibModal', '$location', '$route',
 //         $scope.users=data.data;
 //     });
 
-app.controller('modelCtrl', function ($scope,$uibModalInstance, params) {
+app.controller('modelCtr3', function ($scope,$uibModalInstance, params) {
     console.log(params);
     $scope.params = params;
 

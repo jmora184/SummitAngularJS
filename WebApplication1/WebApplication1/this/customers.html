@@ -31,16 +31,15 @@
 
 
  
-    <div ng-controller="customerController" style="text-align:center">
+    <div ng-controller="CustomerController" style="text-align:center">
         <input type="text" ng-model="item.CustID" placeholder="Enter customer id" required />
         <input type="text" ng-model="item.CustName" placeholder="Enter customer name" required />
         <input type="text" ng-model="item.CustAddress" placeholder="Enter customer address" required />
         <input type="text" ng-model="item.CustPhone" placeholder="Enter customer phone" required />
         <input type="button" ng-click="submitForm(item)" value="Submit" required />
         <!--<input type="button" ng-click="delete(item)" value="Delete" required />-->
-    </div>
 
-    <div ng-controller="customerControllers" style="margin-left:10%; margin-right:10%">
+    <div style="margin-left:10%; margin-right:10%">
         <h3>Customer Data</h3>
         <table class="table table-striped">
             <tr>
@@ -54,6 +53,8 @@
                 <td>{{u.CustName}}</td>
                 <td>{{u.CustAddress}}</td>
                 <td>{{u.CustPhone}}</td>
+                <td> <button type="button" class="" ng-click="openModel(u.CustID,u.CustName,u.CustAddress, u.CustPhone)">Edit</button></td>
             </tr>
         </table>
     </div>
+</div>

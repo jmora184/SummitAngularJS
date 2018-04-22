@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Description;
 
 namespace WebApplication1.Controllers
 {
@@ -40,6 +43,45 @@ namespace WebApplication1.Controllers
             db.Customers.Add(c);
             db.SaveChanges();
             return "sucess";
+        }
+
+        [HttpPut]
+        [ResponseType(typeof(void))]
+        public IHttpActionResult Put(int id,[FromBody]Customer customer)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (id != customer.CustID)
+            {
+                return BadRequest();
+            }
+
+            db.Entry(customer).State = EntityState.Modified;
+
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!CustomerExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return StatusCode(HttpStatusCode.NoContent);
+        }
+        private bool CustomerExists(int id)
+        {
+            return db.Vendors.Count(e => e.VendorID == id) > 0;
         }
     }
 }

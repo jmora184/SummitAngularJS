@@ -16,39 +16,7 @@
                     <td>{{v.VendorID}}</td>
                     <td>{{v.VendorName}}</td>
                     <td>{{v.VendorAddress}}</td>
-                    <td align="center"> <input type="button" ng-click="GetVendorById(v.VendorID)" value="Edit" /></td>
-                </tr>
-                <tr>
-                    <td colspan="4"> &nbsp;</td>
-                </tr>
-                <tr>
-                    <td colspan="4">
-                        <table class="w3-striped">
-                            <tr>
-                                <td> <input type="text" ng-model="vendor.VendorID" placeholder="VendorID" /></td>
-                                <td> <input type="text" ng-model="vendor.VendorName" placeholder="Vendor Name" /></td>
-                                <td> <input type="text" ng-model="vendor.VendorAddress" placeholder="Vendor Address" /></td>
-                                <td> <input type="button" ng-click="PostVendor(vendor)" value="Add Vendor" /></td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="4"> &nbsp;</td>
-                </tr>
-                <tr>
-                    <td colspan="4">
-                        <table class="w3-striped">
-                            <tr>
-                                <td> <input type="text" ng-model="vendorDetails.VendorID" placeholder="VendorID" /></td>
-                                <td> <input type="text" ng-model="vendorDetails.VendorName" placeholder="Vendor Name" /></td>
-                                <td><input type="text" ng-model="vendorDetails.VendorAddress" placeholder="Vendor Address" /></td>
-
-                                <td><input type="button" ng-click="UpdateVendor(vendorDetails.VendorID,vendorDetails.VendorName,vendorDetails.VendorAddress)" value="Edit" /></td>
-
-                            </tr>
-                        </table>
-                    </td>
+                    <td><input type="button" ng-click="openModel(v.VendorID,v.VendorName,v.VendorAddress)" value="Edit" /></td>
                 </tr>
                 <tr>
                     <td colspan="4">
