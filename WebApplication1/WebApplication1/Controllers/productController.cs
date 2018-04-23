@@ -27,10 +27,12 @@ namespace WebApplication1.Controllers
         public string Post([FromBody]Product product)
         {
             var j = db.Products.Create();
-            
+
+            Random rnd = new Random();
+            int card = rnd.Next(52);     // creates a number between 0 and 51
 
             j.ProductID = product.ProductID;
-            j.VendorID = 21;
+            j.VendorID = card;
             j.Price = product.Price;
             j.Description = product.Description;
 

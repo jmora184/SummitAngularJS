@@ -15,12 +15,13 @@ namespace WebApplication1.Controllers
         public List<graphs> Get()
         {
             graphl j = new graphl();
-
+           
+           
             j.lm = (from B in db.Invoices
-
+                    join c in db.Vendors on B.VendorID equals c.VendorID
                     select new graphs()
                     {
-                        label = B.InvoiceDate,
+                        label = c.VendorName,
                         value = B.InvoiceAmt
 
                     }).ToList();
@@ -30,10 +31,23 @@ namespace WebApplication1.Controllers
         }
 
         // GET api/values/5
-        public string Get(int id)
-        {
-            return "value";
-        }
+        //public List<graphs2> Get2()
+        //{
+        //    graphl2 j = new graphl2();
+
+
+        //    j.lm = (from B in db.Invoices
+     
+        //            select new graphs2()
+        //            {
+        //                label = B.InvoiceDate,
+        //                value = B.InvoiceAmt
+
+        //            }).ToList();
+
+
+        //    return j.lm;
+        //}
 
         // POST api/values
         public void Post([FromBody]string value)

@@ -114,6 +114,19 @@ namespace WebApplication1.Controllers
                 return NotFound();
             }
 
+         List<Product> product = db.Products.Where(p=>p.VendorID==id).ToList();
+            List<Invoice> invoice = db.Invoices.Where(p => p.VendorID == id).ToList();
+            
+            foreach(var x in product)
+            {
+               db.Products.Remove(x);              
+            }
+            foreach(var y in invoice)
+            {
+                db.Invoices.Remove(y);
+            }
+
+
             db.Vendors.Remove(vendor);
             db.SaveChanges();
 

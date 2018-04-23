@@ -11,6 +11,8 @@ app.controller("VendorController", ['$scope', '$http', '$uibModal', '$location',
         //Insert a Vendor
         $scope.PostVendor = function (vendor) {
             $http.post('http://localhost:51767/api/Vendors', vendor);
+            $location.path('/Vendor');
+            $window.location.reload();
         }
 
 
@@ -44,6 +46,8 @@ app.controller("VendorController", ['$scope', '$http', '$uibModal', '$location',
         $scope.Delete = function (id) {
             confirm("Do you want to delete the Vendor")
             $http.delete('http://localhost:51767/api/Vendors/' + id);
+            $location.path('/Vendor');
+            $window.location.reload();
     }
 
     $scope.openModel = function (id, VendorName, VendorAddress) {
@@ -73,7 +77,7 @@ app.controller("VendorController", ['$scope', '$http', '$uibModal', '$location',
     }
 }]);
 
-app.controller("InvoiceController", function ($scope, $http) {
+app.controller("InvoiceController", function ($scope, $http,$window,$location) {
         //Get All Invoice
         $http.get('http://localhost:51767/api/Invoices').then(function (response) {
             $scope.invoices = response.data;
@@ -100,10 +104,12 @@ app.controller("InvoiceController", function ($scope, $http) {
 
 
         //Delete an Invoice
-        $scope.DeleteInvoice = function (id) {
-            $http.delete('http://localhost:51767/api/Invoices' + id);
-        }
-
+    $scope.DeleteInvoice = function (id) {
+        confirm("Do you want to delete the Invoice")
+        $http.delete('http://localhost:51767/api/Invoices/' + id);
+        $location.path('/Invoice');
+        $window.location.reload();
+    }
 
     });
 
@@ -149,4 +155,26 @@ app.controller('modelCtrl2', function ($scope, $uibModalInstance, $route,$locati
 
         
     }
+});
+
+app.controller('demo2', function ($scope, $http) {
+
+    $scope.myDataSource2 = {
+        chart: {
+            caption: "Money History",
+            subCaption: "Money recieved by year",
+            numberPrefix: "$",
+            theme: "ocean"
+        },
+        data: [
+ 
+        ]
+    };
+
+    $http.get("http://localhost:51767/api/Values2").then(function (data) {
+        console.log(data);
+        $scope.myDataSource2.data = data.data;
+        console.log($scope.myDataSource2);
+    })
+
 });

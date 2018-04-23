@@ -75,6 +75,13 @@ app.controller("CustomerController", ['$scope', '$http', '$uibModal', '$location
         //$location.path('/customers');
         //$window.location.reload();
     }
+
+    $scope.Delete = function (id) {
+        confirm("Do you want to delete the Customer")
+        $http.delete('http://localhost:51767/api/customers/' + id);
+        $location.path('/customers');
+        $window.location.reload();
+    }
     $scope.openModel = function (id, CustName,CustAddress,CustPhone) {
 
         var modelInstance = $uibModal.open({
@@ -143,7 +150,6 @@ app.controller("productController", ['$scope', '$http', '$location',
             if (form) {
                 item = {
                     "ProductID": $scope.item.ProductID,
-                    "VendorID": $scope.item.VendorID,
                     "Price": $scope.item.Price,
                     "Description": $scope.item.Description
                 }
@@ -228,6 +234,8 @@ app.controller("payroll", ['$scope', '$http','$uibModal', '$location', '$route',
     $scope.Delete = function (id) {
         confirm("Do you want to delete the Vendor")
         $http.delete('http://localhost:51767/api/user/' + id);
+        $location.path('/Payroll');
+        $window.location.reload();
     }
 
     $scope.openModel = function (id,BankName,AcctNumber,EmpAddress) {
@@ -312,32 +320,33 @@ app.controller("payroll", ['$scope', '$http','$uibModal', '$location', '$route',
 
         $scope.myDataSource = {
             chart: {
-                caption: "Money History",
-                subCaption: "Money recieved by year",
+                caption: "Money from each Vendor",
+                subCaption: "Vendor Profit",
                 numberPrefix: "$",
                 theme: "ocean"
             },
             data:[
-            {
-                label: "Bakersfield Central",
-                value: "730000"
-            },
-            {
-                label: "Garden Groove harbour",
-                value: "730000"
-            },
-            {
-                label: "Los Angeles Topanga",
-                value: "590000"
-            },
-            {
-                label: "Compton-Rancho Dom",
-                value: "520000"
-            },
-            {
-                label: "Daly City Serramonte",
-                value: "123400"
-            }]
+            //{
+            //    label: "Bakersfield Central",
+            //    value: "730000"
+            //},
+            //{
+            //    label: "Garden Groove harbour",
+            //    value: "730000"
+            //},
+            //{
+            //    label: "Los Angeles Topanga",
+            //    value: "590000"
+            //},
+            //{
+            //    label: "Compton-Rancho Dom",
+            //    value: "520000"
+            //},
+            //{
+            //    label: "Daly City Serramonte",
+            //    value: "123400"
+                //}
+            ]
         };
 
             $http.get("http://localhost:51767/api/Values").then(function(data){
@@ -394,7 +403,16 @@ app.controller("payroll", ['$scope', '$http','$uibModal', '$location', '$route',
 //         $scope.users=data.data;
 //     });
 
-app.controller('modelCtr3', function ($scope,$uibModalInstance, params) {
+app.controller('modelCtrl', function ($scope,$uibModalInstance, params) {
+    console.log(params);
+    $scope.params = params;
+
+    $scope.close = function () {
+        $uibModalInstance.close("Done");
+    }
+});
+
+app.controller('modelCtr3', function ($scope, $uibModalInstance, params) {
     console.log(params);
     $scope.params = params;
 

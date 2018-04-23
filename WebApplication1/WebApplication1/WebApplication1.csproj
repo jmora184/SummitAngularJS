@@ -200,6 +200,7 @@
     <Compile Include="Controllers\PaymentsController.cs" />
     <Compile Include="Controllers\productController.cs" />
     <Compile Include="Controllers\userController.cs" />
+    <Compile Include="Controllers\Values2Controller.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Controllers\VendorController.cs" />
     <Compile Include="Controllers\VendorsController.cs" />

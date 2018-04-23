@@ -25,6 +25,7 @@
                     <td>{{i.InvoiceStatus}}</td>
                     <td>{{i. VendorID}}</td>
                     <td align="center"> <input type="button" ng-click="GetInvoiceById(i.InvoiceID)" value="Edit" /></td>
+                   <td><input type="button" ng-click="DeleteInvoice(i.InvoiceID)" value="Delete Invoice" /></td> 
                 </tr>
                 <tr>
                     <td colspan="6"> &nbsp;</td>
@@ -78,7 +79,7 @@
                         <table class="w3-striped">
                             <tr>
                                 <td colspan="3"><input type="text" ng-model="invoice.InvoiceID" placeholder="Enter InvoiceID to Delete" /></td>
-                                <td colspan="3"><input type="button" ng-click="DeleteInvoice(invoice.InvoiceID)" value="Delete Invoice" /></td>
+                      
                             </tr>
                         </table>
                     </td>

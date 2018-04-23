@@ -62,8 +62,19 @@ namespace WebApplication1.Models
 
     public class graphs
     {
+        public string label { get; set; }
+        public decimal value { get; set; }
+    }
+
+    public class graphs2
+    {
         public DateTime label { get; set; }
         public decimal value { get; set; }
+    }
+
+    public class graphl2
+    {
+        public List<graphs2> lm { get; set; }
     }
     public class graphl
     {

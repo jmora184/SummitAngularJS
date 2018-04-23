@@ -10,7 +10,7 @@
 .sbar {
     overflow: hidden;
     background-color: white;
-    position: fixed;
+
     border-top-style: ridge;
     border-top-color: lightblue;
     border-bottom-color:lightblue;

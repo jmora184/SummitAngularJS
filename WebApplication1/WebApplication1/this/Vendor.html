@@ -29,10 +29,24 @@
                                     <input type="button" ng-click="Delete(vendor.VendorID)" value="Delete Vendor" />
                                 </td>
                             </tr>
+                            <tr>
+                                <td colspan="4">
+                                    <table class="w3-striped">
+                                        <tr>
+                                            <td> <input type="text" ng-model="vendor.VendorID" placeholder="VendorID" /></td>
+                                            <td> <input type="text" ng-model="vendor.VendorName" placeholder="Vendor Name" /></td>
+                                            <td> <input type="text" ng-model="vendor.VendorAddress" placeholder="Vendor Address" /></td>
+                                            <td> <input type="button" ng-click="PostVendor(vendor)" value="Add Vendor" /></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+
                         </table>
-                    </td>
+                    
                 </tr>
             </table>
+
         </div>
     </div>
 </div>
