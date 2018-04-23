@@ -24,7 +24,7 @@
                     <td>{{i.InvoiceDescription}}</td>
                     <td>{{i.InvoiceStatus}}</td>
                     <td>{{i. VendorID}}</td>
-                    <td align="center"> <input type="button" ng-click="GetInvoiceById(i.InvoiceID)" value="Edit" /></td>
+                    <!--<td align="center"> <input type="button" ng-click="GetInvoiceById(i.InvoiceID)" value="Edit" /></td>-->
                    <td><input type="button" ng-click="DeleteInvoice(i.InvoiceID)" value="Delete Invoice" /></td> 
                 </tr>
                 <tr>
@@ -32,7 +32,7 @@
                 </tr>
                 <tr>
                     <td colspan="6">
-                        <table class="w3-striped">
+                        <!--<table class="w3-striped">
                             <tr>
                                 <td>
                                     <input type="text" ng-model="invoice.InvoiceID" placeholder="InvoiceID" />
@@ -56,12 +56,12 @@
                                     <input type="button" ng-click="PostInvoice(invoice)" value="Add Invoice" />
                                 </td>
                             </tr>
-                        </table>
+                        </table>-->
                     </td>
                 </tr>
                 <tr>
                     <td colspan="4">
-                        <table class="w3-striped">
+                        <!--<table class="w3-striped">
                             <tr>
                                 <td> <input type="text" ng-model="invoiceDetails.invoiceID" placeholder="InvoiceID" /></td>
                                 <td> <input type="text" ng-model="invoiceDetails.InvoiceDate" placeholder="InvoiceDate" /></td>
@@ -71,14 +71,14 @@
                                 <td> <input type="text" ng-model="invoiceDetails.VendorID" placeholder="VendorID" /></td>
                                 <td><input type="button" ng-click="UpdateInvoice(invoiceDetails.invoiceID,invoiceDetails)" value="Update" /></td>
                             </tr>
-                        </table>
+                        </table>-->
                     </td>
                 </tr>
                 <tr>
                     <td colspan="6">
                         <table class="w3-striped">
                             <tr>
-                                <td colspan="3"><input type="text" ng-model="invoice.InvoiceID" placeholder="Enter InvoiceID to Delete" /></td>
+                                <!--<td colspan="3"><input type="text" ng-model="invoice.InvoiceID" placeholder="Enter InvoiceID to Delete" /></td>-->
                       
                             </tr>
                         </table>
